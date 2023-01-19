@@ -56,6 +56,15 @@
     <script src="<?=BASE_URL?>/js/demo/chart-area-demo.js"></script>
     <script src="<?=BASE_URL?>/js/demo/chart-pie-demo.js"></script>
 
+    <script>
+        $(document).ready(function() {
+            // pengaduan create page script
+            $('#btn-aduan-kirim').on('click', function() {
+                $('#aduanForm').submit();
+            })
+        });
+    </script>
+
 </body>
 
 </html>
