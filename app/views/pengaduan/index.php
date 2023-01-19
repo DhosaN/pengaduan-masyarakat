@@ -1,10 +1,5 @@
 <div class="container-fluid">
-    <div class="card my-3">
-        <div class="card-body">
-        <h1 class="h3 mb-2 font-weight-bold text-primary">Ajukan aduan</h1>
-
-        </div>
-    </div>
+    <h5 class="font-weight-bold">Ajukan Aduan</h5>
     <div class="card mb-4">
         <div class="card-body">
             <form>
