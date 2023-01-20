@@ -14,15 +14,15 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Selamat Datang!</h1>
                                     </div>
-                                    <form class="user" action="<?=BASE_URL?>/login/store" method="POST">
+                                    <form class="user" action="<?=BASE_URL?>/login/sign" method="POST">
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
                                                 name="email" id="emailLoginInput" aria-describedby="emailHelp"
-                                                placeholder="Masukkan alamat email ...">
+                                                placeholder="Masukkan alamat email ..." required>
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                name="password" id="passwordLoginInput" placeholder="Password">
+                                                name="password" id="passwordLoginInput" placeholder="Password" required>
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
                                     </form>
