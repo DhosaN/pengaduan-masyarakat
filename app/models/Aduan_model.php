@@ -18,6 +18,15 @@ class Aduan_model {
         return $this->db->resultSet();
     }
 
+    public function getLatestAduan($limit)
+    {
+        $query = 'SELECT * FROM ' . $this->table . ' ORDER BY id_aduan DESC LIMIT :limit';
+        $this->db->query($query);
+        $this->db->bind('limit', $limit);
+
+        return $this->db->resultSet();
+    }
+
     // get aduan data by id_aduan
     public function getAduanByid($id)
     {
