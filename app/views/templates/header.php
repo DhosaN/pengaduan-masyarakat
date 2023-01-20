@@ -41,35 +41,91 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item <?= $data['controller'] == 'home' ? 'active' : '' ?>">
-                <a class="nav-link" href="<?=BASE_URL?>">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Home</span></a>
-            </li>
+            <?php if(empty($_SESSION['user'])): ?>
+                <!-- Nav Item - Home -->
+                <li class="nav-item <?= $data['controller'] == 'home' ? 'active' : '' ?>">
+                    <a class="nav-link" href="<?=BASE_URL?>">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Home</span></a>
+                </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+                <!-- Divider -->
+                <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Pengaduan
-            </div>
-
-            <li class="nav-item <?= $data['controller'] == 'pengaduan' ? 'active' : '' ?>">
-                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-                    aria-controls="collapseTwo">
-                    <i class="fa fa-inbox"></i>
-                    <span>Laporan</span>
-                </a>
-                <div id="collapseTwo" class="collapse <?= $data['controller'] == 'pengaduan' ? 'show' : '' ?>" aria-labelledby="headingTwo"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item <?= $data['title'] == 'Pengaduan' || $data['title'] == 'Detail Laporan' ? 'active' : '' ?>" href="<?= BASE_URL ?>/pengaduan">Laporan Masyarakat</a>
-                        <a class="collapse-item <?= $data['title'] == 'Ajukan Pengaduan' ? 'active' : '' ?> " href="<?= BASE_URL ?>/pengaduan/create">Ajukan Laporan</a>
-                    </div>
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    Pengaduan
                 </div>
-            </li>
+
+                <li class="nav-item <?= $data['controller'] == 'pengaduan' ? 'active' : '' ?>">
+                    <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                        aria-controls="collapseTwo">
+                        <i class="fa fa-inbox"></i>
+                        <span>Laporan</span>
+                    </a>
+                    <div id="collapseTwo" class="collapse <?= $data['controller'] == 'pengaduan' ? 'show' : '' ?>" aria-labelledby="headingTwo"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item <?= $data['title'] == 'Pengaduan' || $data['title'] == 'Detail Laporan' ? 'active' : '' ?>" href="<?= BASE_URL ?>/pengaduan">Laporan Masyarakat</a>
+                            <a class="collapse-item <?= $data['title'] == 'Ajukan Pengaduan' ? 'active' : '' ?> " href="<?= BASE_URL ?>/pengaduan/create">Ajukan Laporan</a>
+                        </div>
+                    </div>
+                </li>
+            <?php elseif($_SESSION['user']['id_level'] == 2): ?>
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item <?= $data['title'] == 'Dashboard' ? 'active' : '' ?>">
+                    <a class="nav-link" href="<?=BASE_URL?>/admin">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Dashboard</span></a>
+                </li>
+
+                <hr class="sidebar-divider"></hr>
+
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    Admin
+                </div>
+
+                <li class="nav-item <?= $data['controller'] == 'pengaduan' ? 'active' : '' ?>">
+                    <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseAdmin" aria-expanded="true"
+                        aria-controls="collapseAdmin">
+                        <i class="fa fa-user"></i>
+                        <span>Admin</span>
+                    </a>
+                    <div id="collapseAdmin" class="collapse <?= $data['controller'] == 'pengaduan' ? 'show' : '' ?>" aria-labelledby="headingTwo"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Laporan</h6>
+                            <a class="collapse-item <?= $data['title'] == 'Pengaduan' || $data['title'] == 'Detail Laporan' ? 'active' : '' ?>" href="<?= BASE_URL ?>/pengaduan">Laporan Masuk</a>
+                            <a class="collapse-item <?= $data['title'] == 'Ajukan Pengaduan' ? 'active' : '' ?> " href="<?= BASE_URL ?>/pengaduan/create">Laporan Ditanggapi</a>
+                        </div>
+                    </div>
+                </li>
+
+                <hr class="sidebar-divider"></hr>
+
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    Petugas
+                </div>
+
+                <li class="nav-item <?= $data['controller'] == 'pengaduan' ? 'active' : '' ?>">
+                    <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePetugas" aria-expanded="true"
+                        aria-controls="collapsePetugas">
+                        <i class="fa fa-user"></i>
+                        <span>Petugas</span>
+                    </a>
+                    <div id="collapsePetugas" class="collapse <?= $data['controller'] == 'pengaduan' ? 'show' : '' ?>" aria-labelledby="headingTwo"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <!-- <h6 class="collapse-header">Laporan</h6> -->
+                            <a class="collapse-item <?= $data['title'] == 'Pengaduan' || $data['title'] == 'Detail Laporan' ? 'active' : '' ?>" href="<?= BASE_URL ?>/pengaduan">Daftar Petugas</a>
+                            <a class="collapse-item <?= $data['title'] == 'Ajukan Pengaduan' ? 'active' : '' ?> " href="<?= BASE_URL ?>/pengaduan/create">Tambah Petugas</a>
+                        </div>
+                    </div>
+                </li>
+
+            <?php endif ?>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
