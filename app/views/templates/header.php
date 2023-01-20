@@ -65,7 +65,7 @@
                 <div id="collapseTwo" class="collapse <?= $data['controller'] == 'pengaduan' ? 'show' : '' ?>" aria-labelledby="headingTwo"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item <?= $data['title'] == 'Pengaduan' ? 'active' : '' ?>" href="<?= BASE_URL ?>/pengaduan">Laporan Masyarakat</a>
+                        <a class="collapse-item <?= $data['title'] == 'Pengaduan' || $data['title'] == 'Detail Laporan' ? 'active' : '' ?>" href="<?= BASE_URL ?>/pengaduan">Laporan Masyarakat</a>
                         <a class="collapse-item <?= $data['title'] == 'Ajukan Pengaduan' ? 'active' : '' ?> " href="<?= BASE_URL ?>/pengaduan/create">Ajukan Laporan</a>
                     </div>
                 </div>
