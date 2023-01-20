@@ -16,6 +16,11 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="judulInput">Judul Laporan</label>
+                    <input type="text" class="form-control" name="judul" id="judulInput" required>
+                    <small class="form-text text-muted">Masukkan judul laporan anda di sini. Buat seringkas mungkin ya!</small>
+                </div>
+                <div class="form-group">
                     <label for="aduanInput">Aduan</label>
                     <textarea name="aduan" id="aduanInput" rows="12" class="form-control"></textarea>
                     <small class="form-text text-muted">Tulis pesan anda pada kolom ini. Pastikan pesan anda mengandung minimal 8 karakter, ya!</small>

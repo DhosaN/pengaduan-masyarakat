@@ -18,6 +18,7 @@ class Pengaduan extends Controller {
         $data = [
             'nama' => $_POST['nama'],
             'email' => $_POST['email'],
+            'judul' => $_POST['judul'],
             'aduan' => $_POST['aduan'],
         ];
 

@@ -12,7 +12,7 @@ class Aduan_model {
     // query all aduan data from db
     public function getAllAduan()
     {
-        $query = 'SELECT * FROM ' . $this->table;
+        $query = 'SELECT * FROM ' . $this->table . ' ORDER BY id_aduan DESC';
         $this->db->query($query);
 
         return $this->db->resultSet();
@@ -21,10 +21,11 @@ class Aduan_model {
     // insert aduan data to db
     public function addAduan($data)
     {
-        $query = 'INSERT INTO ' . $this->table . ' VALUES(NULL, :nama, :email, :aduan)';
+        $query = 'INSERT INTO ' . $this->table . ' VALUES(NULL, :nama, :email, :judul, :aduan)';
         $this->db->query($query);
         $this->db->bind('nama', $data['nama']);
         $this->db->bind('email', $data['email']);
+        $this->db->bind('judul', $data['judul']);
         $this->db->bind('aduan', $data['aduan']);
 
         $this->db->execute();
