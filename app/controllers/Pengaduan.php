@@ -3,7 +3,12 @@
 class Pengaduan extends Controller {
     public function index()
     {
-        $this->view('templates/header');
+        $data = [
+            'title' => 'Pengaduan',
+            'controller' => 'pengaduan',
+        ];
+
+        $this->view('templates/header', $data);
         $this->view('pengaduan/index');
         $this->view('templates/footer');
     }
