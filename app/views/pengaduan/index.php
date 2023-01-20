@@ -1,6 +1,6 @@
 <div class="container-fluid">
-    <h5 class="font-weight-bold">Laporan Masyarakat</h5>
-    <p>Laman ini menyediakan laporan masyarakat yang sudah diterima. Anda dapat coba mencari laporan serupa sebelum mengajukan laporan, ya!</p>
+    <h1 class="h3 m-0 text-gray-800 text-uppercase text-center">Laporan Masyarakat</h1>
+    <p class="mb-4 text-center">Laman ini menyediakan laporan masyarakat yang sudah diterima. Anda dapat coba mencari laporan serupa sebelum mengajukan laporan, ya!</p>
 
     <div class="card mb-4">
         <div class="card-body">

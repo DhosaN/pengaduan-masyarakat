@@ -7,9 +7,7 @@
         <a href="<?=BASE_URL?>/pengaduan/create" class="btn btn-lg btn-primary">Tulis laporan</a>
     </div>
 
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800 font-weight-bold">Laporan Terbaru</h1>
-    </div>
+    <h1 class="h3 mb-4 text-gray-800 text-uppercase">Laporan Terbaru</h1>
 
     <div class="row">
         <?php foreach($data['aduan'] as $aduan): ?>

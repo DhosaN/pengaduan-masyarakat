@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <h5 class="font-weight-bold">Ajukan Aduan</h5>
+    <h1 class="h3 text-gray-800 text-uppercase text-center">Ajukan Laporan</h1>
     <div class="card mb-4">
         <div class="card-body">
             <form action="<?=BASE_URL?>/pengaduan/store" method="POST">
