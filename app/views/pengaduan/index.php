@@ -3,7 +3,7 @@
     <p>Laman ini menyediakan laporan masyarakat yang sudah diterima. Anda dapat coba mencari laporan serupa sebelum mengajukan laporan, ya!</p>
 
     <div class="card mb-4">
-        <div class="card-body">
+        <div class="card-body bg-danger" style="height: 100%; overflow-y: scroll;">
                 <form
                     class="form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                     <div class="input-group">
