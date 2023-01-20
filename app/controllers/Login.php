@@ -3,6 +3,20 @@
 class Login extends Controller {
     public function index()
     {
+        if (isset($_SESSION['user']))
+        {
+            if ($_SESSION['user']['id_level'] == 1)
+            {
+                header('location: ' . BASE_URL . '/petugas');
+                exit;
+            }
+            if ($_SESSION['user']['id_level'] == 2)
+            {
+                header('location: ' . BASE_URL . '/admin');
+                exit;
+            }
+        }
+
         $this->view('templates/auth/header');
         $this->view('login/index');
         $this->view('templates/auth/footer');
