@@ -102,8 +102,8 @@
                                     src="img/undraw_profile.svg">
                             </a>
 
-                            <?= isset($_SESSION['user']) ?
-                            '<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                            <?php if(isset($_SESSION['user'])): ?>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -118,23 +118,21 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="'.BASE_URL.'/logout" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="<?=BASE_URL?>/logout" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
-                            </div>'
-                            :
-                            '<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                            </div>
+                            <?php else: ?>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="'.BASE_URL.'/login">
+                                <a class="dropdown-item" href="<?=BASE_URL?>/login">
                                     <i class="fas fa-sign-in-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Login sebagai petugas
                                 </a>
                                 <div class="dropdown-divider"></div>
-                            </div>'
-                            ?>
-
-
+                            </div>
+                            <?php endif ?>
                         </li>
 
                     </ul>
