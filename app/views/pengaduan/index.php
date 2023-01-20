@@ -16,6 +16,12 @@
                         </div>
                     </div>
                 </form>
+            
+            <?php if(empty($data['aduan'])): ?>
+                <div class="col my-4">
+                    <h6 class="text-primary font-weight-bold text-center">Laporan tidak ditemukan. Coba cari dengan kata kunci lain.</h6>
+                </div>
+            <?php endif ?>
 
             <?php foreach($data['aduan'] as $aduan): ?>
                 <div class="col my-4">
