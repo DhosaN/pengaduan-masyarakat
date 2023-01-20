@@ -4,7 +4,7 @@
         <p class="lead">Website ini adalah tempat masyarakat menyampaikan aspirasi, keluhan, serta saran secara daring</p>
         <hr class="my-4">
         <p>Punya sesuatu untuk disampaikan? klik tombol di bawah ini ya!</p>
-        <a href="<?=BASE_URL?>/pengaduan" class="btn btn-lg btn-primary">Tulis laporan</a>
+        <a href="<?=BASE_URL?>/pengaduan/create" class="btn btn-lg btn-primary">Tulis laporan</a>
     </div>
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">

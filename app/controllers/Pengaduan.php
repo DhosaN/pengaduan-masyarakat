@@ -3,14 +3,29 @@
 class Pengaduan extends Controller {
     public function index()
     {
+        $aduan = $this->model('aduan_model')->getAllAduan();
+        
         $data = [
             'title' => 'Pengaduan',
+            'controller' => 'pengaduan',
+            'aduan' => $aduan,
+        ];
+
+        $this->view('templates/header', $data);
+        $this->view('pengaduan/index', $data);
+        $this->view('templates/footer');
+    }
+
+    public function create()
+    {
+        $data = [
+            'title' => 'Ajukan Pengaduan',
             'controller' => 'pengaduan',
         ];
 
         $this->view('templates/header', $data);
-        $this->view('pengaduan/index');
-        $this->view('templates/footer');
+        $this->view('pengaduan/create');
+        $this->view('templates/footer', $data);
     }
 
     public function store()

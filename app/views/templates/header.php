@@ -56,9 +56,16 @@
                 Pengaduan
             </div>
 
-            <!-- Nav Item - Tables -->
-            <li class="nav-item <?= $data['controller'] == 'pengaduan' ? 'active' : '' ?>">
+            <!-- Nav Item -->
+            <li class="nav-item <?= $data['title'] == 'Pengaduan' ? 'active' : '' ?>">
                 <a class="nav-link" href="<?=BASE_URL?>/pengaduan">
+                    <i class="fas fa-paper-plane"></i>
+                    <span>Aduan Masyarakat</span></a>
+            </li>
+
+            <!-- Nav Item -->
+            <li class="nav-item <?= $data['title'] == 'Ajukan Pengaduan' ? 'active' : '' ?>">
+                <a class="nav-link" href="<?=BASE_URL?>/pengaduan/create">
                     <i class="fas fa-paper-plane"></i>
                     <span>Ajukan Pengaduan</span></a>
             </li>
@@ -99,7 +106,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?=isset($_SESSION['user']) ? $_SESSION['user']['nama_petugas'] : 'Login' ?></span>
                                 <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                    src="<?= BASE_URL ?>/img/undraw_profile.svg">
                             </a>
 
                             <?php if(isset($_SESSION['user'])): ?>
