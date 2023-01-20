@@ -2,27 +2,26 @@
     <h5 class="font-weight-bold">Ajukan Aduan</h5>
     <div class="card mb-4">
         <div class="card-body">
-            <form action="<?=BASE_URL?>/pengaduan/store" method="POST" id="aduanForm">
-        <div class="row">
-            <div class="col">
-                <div class="form-group">
-                    <label for="nameInput">Nama Lengkap</label>
-                    <input type="text" class="form-control" name="nama" id="nameInput" placeholder="contoh: Rudy Santoso" required>
+            <form action="<?=BASE_URL?>/pengaduan/store" method="POST">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="namaInput">Nama</label>
+                        <input type="text" class="form-control" name="nama" id="namaInput" required>
+                        <small class="form-text text-muted">Masukkan nama anda pada kolom ini.</small>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="emailInput">Email</label>
+                        <input type="email" class="form-control" name="email" id="emailInput" required>
+                        <small class="form-text text-muted">Masukkan email anda pada kolom ini. Pastikan email yang anda masukkan valid, ya!</small>
+                    </div>
                 </div>
-            </div>
-            <div class="col">
                 <div class="form-group">
-                    <label for="emailInput">Email</label>
-                    <input type="email" class="form-control" name="email" id="emailInput" placeholder="contoh: rudysantoso@email.com" required>
+                    <label for="aduanInput">Aduan</label>
+                    <textarea name="aduan" id="aduanInput" rows="12" class="form-control"></textarea>
+                    <small class="form-text text-muted">Tulis pesan anda pada kolom ini. Pastikan pesan anda mengandung minimal 8 karakter, ya!</small>
                 </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="aduanInput">Aduan</label>
-            <textarea class="form-control" name="aduan" id="aduanInput" rows="12"></textarea required>
-        </div>
-        </form>
-            <a class="btn btn-primary btn-lg" href="#" data-toggle="modal" data-target="#kirimModal">Kirim Laporan!</a>
+                <button type="submit" class="btn btn-primary btn-lg" id="btn-aduan-kirim">Kirim!</button>
+            </form>
         </div>
     </div>
 </div>
