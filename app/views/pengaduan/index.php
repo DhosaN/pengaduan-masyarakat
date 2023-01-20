@@ -5,8 +5,8 @@
             <form action="<?=BASE_URL?>/pengaduan/store" method="POST">
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="namaInput">Nama</label>
-                        <input type="text" class="form-control" name="nama" id="namaInput" required>
+                        <label for="namaInput">Nama Lengkap</label>
+                        <input type="text" class="form-control" name="nama" id="namaInput" required autofocus>
                         <small class="form-text text-muted">Masukkan nama anda pada kolom ini.</small>
                     </div>
                     <div class="form-group col-md-6">

@@ -16,19 +16,19 @@ class Pengaduan extends Controller {
             'aduan' => $_POST['aduan'],
         ];
 
-        foreach($data as $key => $value)
-        {
-            if (!$this->validateLength($value, 8))
-            {
-                $_SESSION['invalid'][$key] = 'minimal mengandung 8 karakter!';
-            }
-        }
+        // foreach($data as $key => $value)
+        // {
+        //     if (!$this->validateLength($value, 8))
+        //     {
+        //         $_SESSION['invalid'][$key] = 'minimal mengandung 8 karakter!';
+        //     }
+        // }
 
-        if (isset($_SESSION['invalid']))
-        {
-            header('location: ' . BASE_URL . '/pengaduan');
-            exit;
-        }
+        // if (isset($_SESSION['invalid']))
+        // {
+        //     header('location: ' . BASE_URL . '/pengaduan');
+        //     exit;
+        // }
 
         if ($this->model('aduan_model')->addAduan($data) > 0)
         {
