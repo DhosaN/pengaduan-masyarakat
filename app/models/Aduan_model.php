@@ -37,6 +37,15 @@ class Aduan_model {
         return $this->db->single();
     }
 
+    // query aduan data which keyword includes in the data
+    public function getAduanByJudulOrAduan($key)
+    {
+        $query = "SELECT * FROM {$this->table} WHERE judul LIKE '%{$key}%' OR aduan LIKE '%{$key}%'";
+        $this->db->query($query);
+
+        return $this->db->resultSet();
+    }
+
     // insert aduan data to db
     public function addAduan($data)
     {

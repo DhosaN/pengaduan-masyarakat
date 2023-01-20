@@ -43,6 +43,22 @@ class Pengaduan extends Controller {
         $this->view('templates/footer', $data);
     }
 
+    public function search()
+    {
+        $key = $_POST['search'];
+
+        $aduan = $this->model('aduan_model')->getAduanByJudulOrAduan($key);
+        $data = [
+            'title' => 'Pengaduan',
+            'controller' => 'pengaduan',
+            'aduan' => $aduan,
+        ];
+
+        $this->view('templates/header', $data);
+        $this->view('pengaduan/index', $data);
+        $this->view('templates/footer');
+    }
+
     public function store()
     {
         $data = [
