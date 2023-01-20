@@ -18,6 +18,16 @@ class Aduan_model {
         return $this->db->resultSet();
     }
 
+    // get aduan data by id_aduan
+    public function getAduanByid($id)
+    {
+        $query = 'SELECT * FROM ' . $this->table . ' WHERE id_aduan=:id';
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+
+        return $this->db->single();
+    }
+
     // insert aduan data to db
     public function addAduan($data)
     {

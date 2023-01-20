@@ -28,6 +28,21 @@ class Pengaduan extends Controller {
         $this->view('templates/footer', $data);
     }
 
+    public function detail($id = null)
+    {
+        $aduan = $this->model('aduan_model')->getAduanById($id);
+
+        $data = [
+            'title' => 'Detail Laporan',
+            'controller' => 'pengaduan',
+            'aduan' => $aduan,
+        ];
+
+        $this->view('templates/header', $data);
+        $this->view('pengaduan/detail', $data);
+        $this->view('templates/footer', $data);
+    }
+
     public function store()
     {
         $data = [

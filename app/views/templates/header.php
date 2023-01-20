@@ -56,18 +56,19 @@
                 Pengaduan
             </div>
 
-            <!-- Nav Item -->
-            <li class="nav-item <?= $data['title'] == 'Pengaduan' ? 'active' : '' ?>">
-                <a class="nav-link" href="<?=BASE_URL?>/pengaduan">
-                    <i class="fas fa-paper-plane"></i>
-                    <span>Aduan Masyarakat</span></a>
-            </li>
-
-            <!-- Nav Item -->
-            <li class="nav-item <?= $data['title'] == 'Ajukan Pengaduan' ? 'active' : '' ?>">
-                <a class="nav-link" href="<?=BASE_URL?>/pengaduan/create">
-                    <i class="fas fa-paper-plane"></i>
-                    <span>Ajukan Pengaduan</span></a>
+            <li class="nav-item <?= $data['controller'] == 'pengaduan' ? 'active' : '' ?>">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                    aria-controls="collapseTwo">
+                    <i class="fa fa-inbox"></i>
+                    <span>Laporan</span>
+                </a>
+                <div id="collapseTwo" class="collapse <?= $data['controller'] == 'pengaduan' ? 'show' : '' ?>" aria-labelledby="headingTwo"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item <?= $data['title'] == 'Pengaduan' ? 'active' : '' ?>" href="<?= BASE_URL ?>/pengaduan">Laporan Masyarakat</a>
+                        <a class="collapse-item <?= $data['title'] == 'Ajukan Pengaduan' ? 'active' : '' ?> " href="<?= BASE_URL ?>/pengaduan/create">Ajukan Laporan</a>
+                    </div>
+                </div>
             </li>
 
             <!-- Divider -->

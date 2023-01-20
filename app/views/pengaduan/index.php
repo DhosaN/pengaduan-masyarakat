@@ -3,7 +3,7 @@
     <p>Laman ini menyediakan laporan masyarakat yang sudah diterima. Anda dapat coba mencari laporan serupa sebelum mengajukan laporan, ya!</p>
 
     <div class="card mb-4">
-        <div class="card-body bg-danger" style="height: 100%; overflow-y: scroll;">
+        <div class="card-body">
                 <form
                     class="form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                     <div class="input-group">
@@ -19,7 +19,7 @@
 
             <?php foreach($data['aduan'] as $aduan): ?>
                 <div class="col my-4">
-                    <a href="" class="m-0 font-weight-bold text-primary"><?= $aduan['judul'] ?? 'Judul Laporan' ?></a>
+                    <a href="<?= BASE_URL ?>/pengaduan/detail/<?= $aduan['id_aduan'] ?>" class="m-0 font-weight-bold text-primary"><?= $aduan['judul'] ?? 'Judul Laporan' ?></a>
                     <p>Ditulis oleh: <?= $aduan['nama'] ?></p>
                     <hr>
                 </div>
