@@ -3,6 +3,8 @@
 class Petugas extends Controller {
     public function index()
     {
+        Middleware::onlyPetugas();
+
         $data = [
             'title' => 'Dashboard',
             'controller' => 'petugas',

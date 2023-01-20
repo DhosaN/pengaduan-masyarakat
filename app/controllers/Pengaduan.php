@@ -3,6 +3,8 @@
 class Pengaduan extends Controller {
     public function index()
     {
+        Middleware::onlyNotLoggedIn();
+
         $aduan = $this->model('aduan_model')->getAllAduan();
         
         $data = [
@@ -18,6 +20,8 @@ class Pengaduan extends Controller {
 
     public function create()
     {
+        Middleware::onlyNotLoggedIn();
+
         $data = [
             'title' => 'Ajukan Pengaduan',
             'controller' => 'pengaduan',
@@ -30,6 +34,8 @@ class Pengaduan extends Controller {
 
     public function detail($id = null)
     {
+        Middleware::onlyNotLoggedIn();
+
         $aduan = $this->model('aduan_model')->getAduanById($id);
 
         $data = [
@@ -45,6 +51,8 @@ class Pengaduan extends Controller {
 
     public function search()
     {
+        Middleware::onlyNotLoggedIn();
+
         $key = $_POST['search'];
 
         $aduan = $this->model('aduan_model')->getAduanByJudulOrAduan($key);
@@ -61,6 +69,8 @@ class Pengaduan extends Controller {
 
     public function store()
     {
+        Middleware::onlyNotLoggedIn();
+
         $data = [
             'nama' => $_POST['nama'],
             'email' => $_POST['email'],
@@ -94,7 +104,7 @@ class Pengaduan extends Controller {
         }
     }
 
-    public function validateLength($data, $minLength) 
+    private function validateLength($data, $minLength) 
     {
         return strlen($data) >= $minLength;
     }

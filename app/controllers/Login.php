@@ -3,19 +3,7 @@
 class Login extends Controller {
     public function index()
     {
-        if (isset($_SESSION['user']))
-        {
-            if ($_SESSION['user']['id_level'] == 1)
-            {
-                header('location: ' . BASE_URL . '/petugas');
-                exit;
-            }
-            if ($_SESSION['user']['id_level'] == 2)
-            {
-                header('location: ' . BASE_URL . '/admin');
-                exit;
-            }
-        }
+        Middleware::onlyNotLoggedIn();
 
         $this->view('templates/auth/header');
         $this->view('login/index');
@@ -24,6 +12,8 @@ class Login extends Controller {
 
     public function sign()
     {
+        Middleware::onlyNotLoggedIn();
+
         $data = [
             'email' => $_POST['email'],
             'password' => $_POST['password'],

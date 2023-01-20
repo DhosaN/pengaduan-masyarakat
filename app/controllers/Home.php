@@ -3,6 +3,8 @@
 class Home extends Controller {
     public function index()
     {
+        Middleware::onlyNotLoggedIn();
+
         $aduan = $this->model('aduan_model')->getLatestAduan(6);
 
         $data = [
