@@ -16,7 +16,7 @@
             <div class="col-xl-4 col-lg-6">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <a class="h6 m-0 font-weight-bold text-primary" href="#"><?= $aduan['judul'] ?? 'Judul Laporan' ?></a>
+                        <a class="h6 m-0 font-weight-bold text-primary" href="<?= BASE_URL ?>/pengaduan/detail/<?= $aduan['id_aduan'] ?>"><?= $aduan['judul'] ?? 'Judul Laporan' ?></a>
                     </div>
                     <div class="card-body">
                         Dilaporkan oleh: <?= $aduan['nama'] ?>
