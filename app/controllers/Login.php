@@ -35,6 +35,10 @@ class Login extends Controller {
             ];
 
             header('location: ' . BASE_URL);
+            exit;
         }
+
+        header('location: ' . BASE_URL . '/login');
+        exit;
     }
 }
