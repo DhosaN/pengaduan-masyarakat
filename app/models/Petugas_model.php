@@ -33,6 +33,15 @@ class Petugas_model {
         return $this->db->resultSet();
     }
 
+    public function getPetugasEmail($email)
+    {
+        $query = 'SELECT email FROM ' . $this->table . ' WHERE email=:email';
+        $this->db->query($query);
+        $this->db->bind('email', $email);
+
+        return $this->db->single();
+    }
+
     public function getPetugasByEmailAndPassword($data)
     {
         $query = 'SELECT * FROM ' . $this->table . ' WHERE email=:email AND password=:password';

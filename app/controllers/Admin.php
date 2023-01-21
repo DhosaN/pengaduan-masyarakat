@@ -26,6 +26,9 @@ class Admin extends Controller {
             case 'create':
                 $this->petugasCreate();
                 break;
+            case 'store':
+                $this->petugasStore();
+                break;
             default:
                 header('location: ' . BASE_URL . '/login');
                 exit;
@@ -50,13 +53,47 @@ class Admin extends Controller {
 
     public function petugasCreate()
     {
+        $level = $this->model('level_model')->getAllLevel();
+
         $data = [
             'title' => 'Tambah Petugas',
             'controller' => 'admin',
+            'level' => $level,
         ];
 
         $this->view('templates/header', $data);
-        $this->view('admin/petugas/create');
+        $this->view('admin/petugas/create', $data);
         $this->view('templates/footer');
+    }
+
+    public function petugasStore()
+    {
+        $data = [
+            'id_level' => $_POST['level'],
+            'nama_petugas' => $_POST['nama'],
+            'username' => $_POST['username'],
+            'email' => $_POST['email'],
+            'telp' => $_POST['telp'],
+            'password' => 'Petugas123',
+        ];
+
+        // encrypt password
+        $data['password'] = md5($data['password']);
+
+        // verify if email already registered
+        // if email matched, direct user back to admin/petugas/create page
+        if ($this->model('petugas_model')->getPetugasEmail($data['email']) > 0)
+        {
+            header('location: ' . BASE_URL . '/admin/petugas/create');
+            exit;
+        }
+
+        if ($this->model('petugas_model')->addPetugas($data) > 0)
+        {
+            header('location: ' . BASE_URL . '/admin/petugas/create');
+            exit;
+        }
+        header('location: ' . BASE_URL . '/admin/petugas/create');
+        exit;
     }
 }

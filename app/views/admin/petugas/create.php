@@ -30,6 +30,15 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="idLevelInput">Level</label>
+                    <select name="level" id="idLevelInput" class="form-control" required>
+                        <?php foreach($data['level'] as $level): ?>
+                            <option value="<?= $level['id_level'] ?>"><?= $level['nama_level'] ?></option>
+                        <?php endforeach ?>
+                    </select>
+                    <small class="form-text text-muted">Pilih hak akses untuk petugas. Anda dapat menggantinya juga setelah data petugas tersimpan.</small>
+                </div>
+                <div class="form-group">
                     <label for="passwordInput">Password</label>
                     <input type="text" name="password" id="passwordInput" class="form-control" value="Petugas123" disabled>
                     <small class="form-text text-danger">Password ini adalah bawaan dari sistem. Pastikan petugas mengganti password setelah akun berhasil dibuat!</small>
