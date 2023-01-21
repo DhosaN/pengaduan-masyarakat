@@ -25,6 +25,14 @@ class Petugas_model {
         return $this->db->rowCount();
     }
 
+    public function getAllPetugas()
+    {
+        $query = 'SELECT * FROM ' . $this->table . ' ORDER BY nama_petugas ASC';
+        $this->db->query($query);
+
+        return $this->db->resultSet();
+    }
+
     public function getPetugasByEmailAndPassword($data)
     {
         $query = 'SELECT * FROM ' . $this->table . ' WHERE email=:email AND password=:password';

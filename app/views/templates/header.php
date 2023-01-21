@@ -119,7 +119,7 @@
                         data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <!-- <h6 class="collapse-header">Laporan</h6> -->
-                            <a class="collapse-item <?= $data['title'] == 'Pengaduan' || $data['title'] == 'Detail Laporan' ? 'active' : '' ?>" href="<?= BASE_URL ?>/pengaduan">Daftar Petugas</a>
+                            <a class="collapse-item <?= $data['title'] == 'Pengaduan' || $data['title'] == 'Detail Laporan' ? 'active' : '' ?>" href="<?= BASE_URL ?>/admin/petugas">Daftar Petugas</a>
                             <a class="collapse-item <?= $data['title'] == 'Ajukan Pengaduan' ? 'active' : '' ?> " href="<?= BASE_URL ?>/pengaduan/create">Tambah Petugas</a>
                         </div>
                     </div>

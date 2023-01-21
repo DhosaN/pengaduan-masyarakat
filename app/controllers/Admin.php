@@ -14,4 +14,21 @@ class Admin extends Controller {
         $this->view('admin/dashboard/index', $data);
         $this->view('templates/footer');
     }
+
+    public function petugas()
+    {
+        Middleware::onlyAdmin();
+
+        $petugas = $this->model('petugas_model')->getAllPetugas();
+
+        $data = [
+            'title' => 'Petugas',
+            'controller' => 'admin',
+            'petugas' => $petugas,
+        ];
+
+        $this->view('templates/header', $data);
+        $this->view('admin/petugas/index', $data);
+        $this->view('templates/footer');
+    }
 }
