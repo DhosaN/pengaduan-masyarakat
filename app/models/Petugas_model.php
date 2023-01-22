@@ -42,6 +42,15 @@ class Petugas_model {
         return $this->db->single();
     }
 
+    public function getPetugasById($id)
+    {
+        $query = "SELECT p.nama_petugas, p.username, p.email, p.telp, l.nama_level FROM {$this->table} AS p LEFT JOIN level AS l ON l.id_level = p.id_level WHERE p.id_petugas=:id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+
+        return $this->db->single();
+    }
+
     public function getPetugasByEmailAndPassword($data)
     {
         $query = 'SELECT * FROM ' . $this->table . ' WHERE email=:email AND password=:password';

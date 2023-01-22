@@ -15,34 +15,15 @@ class Admin extends Controller {
         $this->view('templates/footer');
     }
 
-    public function petugas($page = 'index')
+    public function daftarPetugas()
     {
         Middleware::onlyAdmin();
 
-        switch($page) {
-            case 'index':
-                $this->petugasIndex();
-                break;
-            case 'create':
-                $this->petugasCreate();
-                break;
-            case 'store':
-                $this->petugasStore();
-                break;
-            default:
-                header('location: ' . BASE_URL . '/login');
-                exit;
-        }
-
-    }
-
-    public function petugasIndex()
-    {
         $petugas = $this->model('petugas_model')->getAllPetugas();
 
         $data = [
-            'title' => 'Petugas',
-            'controller' => 'admin',
+            'title' => 'Daftar Petugas',
+            'controller' => 'adminPetugas',
             'petugas' => $petugas,
         ];
 
@@ -51,13 +32,15 @@ class Admin extends Controller {
         $this->view('templates/footer');
     }
 
-    public function petugasCreate()
+    public function createPetugas()
     {
+        Middleware::onlyAdmin();
+
         $level = $this->model('level_model')->getAllLevel();
 
         $data = [
             'title' => 'Tambah Petugas',
-            'controller' => 'admin',
+            'controller' => 'adminPetugas',
             'level' => $level,
         ];
 
@@ -66,8 +49,10 @@ class Admin extends Controller {
         $this->view('templates/footer');
     }
 
-    public function petugasStore()
+    public function storePetugas()
     {
+        Middleware::onlyAdmin();
+
         $data = [
             'id_level' => $_POST['level'],
             'nama_petugas' => $_POST['nama'],
@@ -95,5 +80,20 @@ class Admin extends Controller {
         }
         header('location: ' . BASE_URL . '/admin/petugas/create');
         exit;
+    }
+
+    public function detailPetugas($id)
+    {
+        $petugas = $this->model('petugas_model')->getPetugasById($id);
+
+        $data = [
+            'title' => 'Detail Petugas',
+            'controller' => 'adminPetugas',
+            'petugas' => $petugas,
+        ];
+
+        $this->view('templates/header', $data);
+        $this->view('admin/petugas/detail', $data);
+        $this->view('templates/footer');
     }
 }

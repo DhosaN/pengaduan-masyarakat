@@ -6,7 +6,6 @@
             </span>
             <span class="text">Kembali</span>
         </a>
-
     </div>
     <div class="col">
         <div class="card shadow mb-4">

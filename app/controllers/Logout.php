@@ -7,7 +7,7 @@ class Logout {
 
         unset($_SESSION['user']);
 
-        header('location: ' . BASE_URL . '/login');
+        header('location: ' . BASE_URL);
         exit;
     }
 }
