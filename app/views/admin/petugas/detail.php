@@ -5,10 +5,10 @@
                 <span class="icon text-white-50">
                     <i class="fas fa-arrow-left"></i>
                 </span>
-                <span class="text">Kembali</span>
+                <span class="text">Kembali ke daftar petugas</span>
             </a>
 
-            <a href="<?= BASE_URL ?>/pengaduan" class="btn btn-warning btn-icon-split mb-3 mr-3">
+            <a href="<?= BASE_URL ?>/admin/editpetugas/<?= $data['petugas']['id_petugas'] ?>" class="btn btn-warning btn-icon-split mb-3 mr-3">
                 <span class="icon text-white-50">
                     <i class="fas fa-edit"></i>
                 </span>

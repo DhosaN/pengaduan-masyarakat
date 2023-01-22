@@ -84,6 +84,8 @@ class Admin extends Controller {
 
     public function detailPetugas($id)
     {
+        Middleware::onlyAdmin();
+
         $petugas = $this->model('petugas_model')->getPetugasById($id);
 
         $data = [
@@ -95,5 +97,46 @@ class Admin extends Controller {
         $this->view('templates/header', $data);
         $this->view('admin/petugas/detail', $data);
         $this->view('templates/footer');
+    }
+
+    public function editPetugas($id)
+    {
+        Middleware::onlyAdmin();
+
+        $petugas = $this->model('petugas_model')->getPetugasById($id);
+        $level = $this->model('level_model')->getAllLevel();
+
+        $data = [
+            'title' => 'Edit Petugas',
+            'controller' => 'adminPetugas',
+            'petugas' => $petugas,
+            'level' => $level,
+        ];
+
+        $this->view('templates/header', $data);
+        $this->view('admin/petugas/edit', $data);
+        $this->view('templates/footer');
+    }
+
+    public function updatePetugas($id)
+    {
+        Middleware::onlyAdmin();
+
+        $data = [
+            'id_petugas' => $id,
+            'id_level' => $_POST['level'],
+            'nama_petugas' => $_POST['nama'],
+            'username' => $_POST['username'],
+            'email' => $_POST['email'],
+            'telp' => $_POST['telp'],
+        ];
+
+        if ($this->model('petugas_model')->updatePetugas($data) > 0)
+        {
+            header('location: ' . BASE_URL . '/admin/editpetugas/' . $id);
+            exit;
+        }
+        header('location: ' . BASE_URL . '/admin/editpetugas/' . $id);
+        exit;
     }
 }
