@@ -43,7 +43,7 @@ class Petugas_model {
 
     public function getAllPetugas()
     {
-        $query = 'SELECT * FROM ' . $this->table . ' ORDER BY nama_petugas ASC';
+        $query = "SELECT p.id_petugas, p.nama_petugas, p.username, p.email, p.telp, l.id_level, l.nama_level FROM {$this->table} as p LEFT JOIN level AS l ON l.id_level = p.id_level";
         $this->db->query($query);
 
         return $this->db->resultSet();

@@ -56,7 +56,7 @@
     <!-- Page level custom scripts -->
     <script src="<?=BASE_URL?>/js/demo/datatables-demo.js"></script>
 
-    <script src="<?= BASE_URL ?>/js/pengaduan_script.js"></script>
+    <script src="<?=BASE_URL?>/js/pengaduan_script.js"></script>
 </body>
 
 </html>
