@@ -6,10 +6,14 @@ class Admin extends Controller {
     public function index()
     {
         Middleware::onlyAdmin();
+        $laporan = $this->model('aduan_model')->getAllAduan();
+        $petugas = $this->model('petugas_model')->getAllPetugas();
 
         $data = [
             'title' => 'Dashboard',
             'controller' => 'admin',
+            'laporan' => $laporan,
+            'petugas' => $petugas,
         ];
 
         $this->view('templates/header', $data);

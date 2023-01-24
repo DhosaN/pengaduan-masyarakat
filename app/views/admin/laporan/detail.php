@@ -31,7 +31,7 @@
                     <form action="<?=BASE_URL?>/admin/tanggapilaporan/<?=$laporan['id_aduan']?>" method="POST">
                         <div class="form-group">
                             <label for="tanggapanInput">Tanggapan Laporan</label>
-                            <textarea name="" id="" cols="30" rows="10" class="form-control" required></textarea>
+                            <textarea name="" id="" cols="30" rows="15" class="form-control" required></textarea>
                             <small class="form-text text-muted">Masukkan tanggapan laporan pada kolom ini.</small>
                         </div>
 

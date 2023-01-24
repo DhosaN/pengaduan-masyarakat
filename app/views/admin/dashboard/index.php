@@ -10,7 +10,7 @@
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                 Laporan Masuk
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">23</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?=count($data['laporan'])?></div>
                         </div>
                         <div class="col-auto">
                             <i class="fa fa-inbox fa-2x text-gray-300"></i>
@@ -28,7 +28,7 @@
                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                                 Petugas
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">4</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?=count($data['petugas'])?></div>
                         </div>
                         <div class="col-auto">
                             <i class="fa fa-users fa-2x text-gray-300"></i>
