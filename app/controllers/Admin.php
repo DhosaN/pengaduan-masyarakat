@@ -1,6 +1,8 @@
 <?php
 
 class Admin extends Controller {
+
+    // dashboard section
     public function index()
     {
         Middleware::onlyAdmin();
@@ -14,7 +16,9 @@ class Admin extends Controller {
         $this->view('admin/dashboard/index', $data);
         $this->view('templates/footer');
     }
+    // end of dashboard section
 
+    // petugas section
     public function daftarPetugas()
     {
         Middleware::onlyAdmin();
@@ -139,4 +143,41 @@ class Admin extends Controller {
         header('location: ' . BASE_URL . '/admin/editpetugas/' . $id);
         exit;
     }
+    // end of petugas section
+
+    // pengaduan section
+    public function laporanMasuk()
+    {
+        Middleware::onlyAdmin();
+
+        $laporan = $this->model('aduan_model')->getAduanByStatus('diproses', 'ASC');
+
+        $data = [
+            'title' => 'Laporan Masuk',
+            'controller' => 'adminLaporan',
+            'laporan' => $laporan,
+        ];
+
+        $this->view('templates/header', $data);
+        $this->view('admin/laporan/index', $data);
+        $this->view('templates/footer');
+    }
+
+    public function detailLaporan($id)
+    {
+        Middleware::onlyAdmin();
+
+        $laporan = $this->model('aduan_model')->getAduanById($id);
+
+        $data = [
+            'title' => 'Detail Laporan',
+            'controller' => 'adminLaporan',
+            'laporan' => $laporan,
+        ];
+
+        $this->view('templates/header', $data);
+        $this->view('admin/laporan/detail', $data);
+        $this->view('templates/footer');
+    }
+    // end of pengaduan section
 }

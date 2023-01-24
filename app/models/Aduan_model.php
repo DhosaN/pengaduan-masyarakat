@@ -28,13 +28,23 @@ class Aduan_model {
     }
 
     // get aduan data by id_aduan
-    public function getAduanByid($id)
+    public function getAduanById($id)
     {
         $query = 'SELECT * FROM ' . $this->table . ' WHERE id_aduan=:id';
         $this->db->query($query);
         $this->db->bind('id', $id);
 
         return $this->db->single();
+    }
+
+    // query aduan data based on its status, then sort it by desired order
+    public function getAduanByStatus($status, $order)
+    {
+        $query = 'SELECT * FROM ' . $this->table . ' WHERE status=:status ORDER BY id_aduan ' . $order;
+        $this->db->query($query);
+        $this->db->bind('status', $status);
+
+        return $this->db->resultSet();
     }
 
     // query aduan data which keyword includes in the data
