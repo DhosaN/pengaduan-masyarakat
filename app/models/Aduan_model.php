@@ -59,12 +59,13 @@ class Aduan_model {
     // insert aduan data to db
     public function addAduan($data)
     {
-        $query = 'INSERT INTO ' . $this->table . ' VALUES(NULL, :nama, :email, :judul, :aduan)';
+        $query = 'INSERT INTO ' . $this->table . ' VALUES(NULL, :nama, :email, :judul, :aduan, :status)';
         $this->db->query($query);
         $this->db->bind('nama', $data['nama']);
         $this->db->bind('email', $data['email']);
         $this->db->bind('judul', $data['judul']);
         $this->db->bind('aduan', $data['aduan']);
+        $this->db->bind('status', 'diproses');
 
         $this->db->execute();
 
