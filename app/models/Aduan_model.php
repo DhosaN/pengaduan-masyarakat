@@ -71,4 +71,16 @@ class Aduan_model {
 
         return $this->db->rowCount();
     }
+
+    public function updateAduanStatus($data)
+    {
+        $query = 'UPDATE ' . $this->table . ' SET status=:status WHERE id_aduan=:id_aduan';
+        $this->db->query($query);
+        $this->db->bind('status', $data['status']);
+        $this->db->bind('id_aduan', $data['id_aduan']);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }

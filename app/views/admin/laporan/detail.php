@@ -28,13 +28,11 @@
                     <h6 class="m-0 font-weight-bold text-primary">Berikan Tanggapan</h6>
                 </div>
                 <div class="card-body">
-                    <form action="<?=BASE_URL?>/admin/tanggapilaporan/<?=$laporan['id_aduan']?>" method="POST">
+                    <form action="<?= BASE_URL ?>/admin/storetanggapan/<?= $data['laporan']['id_aduan']?>" method="POST">
                         <div class="form-group">
-                            <label for="tanggapanInput">Tanggapan Laporan</label>
-                            <textarea name="" id="" cols="30" rows="15" class="form-control" required></textarea>
-                            <small class="form-text text-muted">Masukkan tanggapan laporan pada kolom ini.</small>
+                            <label for="tanggapanInput">Tanggapan</label>
+                            <textarea class="form-control" name="tanggapan" id="tanggapanInput" cols="30" rows="15" required></textarea>
                         </div>
-
                         <button type="submit" class="btn btn-primary">Tanggapi</button>
                     </form>
                 </div>

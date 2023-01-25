@@ -183,5 +183,26 @@ class Admin extends Controller {
         $this->view('admin/laporan/detail', $data);
         $this->view('templates/footer');
     }
+
+    public function storeTanggapan($idAduan)
+    {
+        Middleware::onlyAdmin();
+
+        $data = [
+            'id_aduan' => $idAduan,
+            'id_petugas' => $_SESSION['user']['id_petugas'],
+            'tgl_tanggapan' => date('Y-m-d'),
+            'tanggapan' => $_POST['tanggapan'],
+            'status' => 'ditanggapi',
+        ];
+
+        if ($this->model('tanggapan_model')->addTanggapan($data) > 0 && $this->model('aduan_model')->updateAduanStatus($data) > 0)
+        {
+            header('location: ' . BASE_URL . '/admin/laporanmasuk');
+            exit;
+        }
+        header('location: ' . BASE_URL . '/admin/laporanmasuk');
+        exit;
+    }
     // end of pengaduan section
 }
