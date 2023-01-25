@@ -25,11 +25,9 @@ class Register extends Controller {
         // if insert petugas data successfull then direct to login page
         if ($this->model('petugas_model')->addPetugas($data) > 0)
         {
-            header('location: ' . BASE_URL . '/login');
-            exit;
+            $this->directTo('/login');
         }
 
-        header('location: ' . BASE_URL . '/register');
-        exit;
+        $this->directTo('/login');
     }
 }

@@ -77,16 +77,15 @@ class Admin extends Controller {
         // if email matched, direct user back to admin/petugas/create page
         if ($this->model('petugas_model')->getPetugasEmail($data['email']) > 0)
         {
-            header('location: ' . BASE_URL . '/admin/petugas/create');
-            exit;
+            $this->directTo('/admin/petugas/create');
         }
 
         if ($this->model('petugas_model')->addPetugas($data) > 0)
         {
-            header('location: ' . BASE_URL . '/admin/petugas/create');
+            $this->directTo('/admin/petugas/create');
             exit;
         }
-        header('location: ' . BASE_URL . '/admin/petugas/create');
+        $this->directTo('/admin/petugas/create');
         exit;
     }
 
@@ -141,11 +140,9 @@ class Admin extends Controller {
 
         if ($this->model('petugas_model')->updatePetugas($data) > 0)
         {
-            header('location: ' . BASE_URL . '/admin/editpetugas/' . $id);
-            exit;
+            $this->directTo('/admin/editpetugas/' . $id);
         }
-        header('location: ' . BASE_URL . '/admin/editpetugas/' . $id);
-        exit;
+        $this->directTo('/admin/editpetugas/' . $id);
     }
     // end of petugas section
 
@@ -198,11 +195,9 @@ class Admin extends Controller {
 
         if ($this->model('tanggapan_model')->addTanggapan($data) > 0 && $this->model('aduan_model')->updateAduanStatus($data) > 0)
         {
-            header('location: ' . BASE_URL . '/admin/laporanmasuk');
-            exit;
+            $this->directTo('/admin/laporanmasuk');
         }
-        header('location: ' . BASE_URL . '/admin/laporanmasuk');
-        exit;
+        $this->directTo('/admin/laporanmasuk');
     }
     // end of pengaduan section
 }

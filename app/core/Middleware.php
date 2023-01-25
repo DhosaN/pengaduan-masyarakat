@@ -48,7 +48,7 @@ class Middleware {
 
     public static function onlyLoggedIn()
     {
-        if (empty($_SESSION['user']))
+        if (!isset($_SESSION['user']))
         {
             header('location: ' . BASE_URL . '/login');
             exit;

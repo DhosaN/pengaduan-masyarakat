@@ -78,29 +78,15 @@ class Pengaduan extends Controller {
             'aduan' => $_POST['aduan'],
         ];
 
-        // foreach($data as $key => $value)
-        // {
-        //     if (!$this->validateLength($value, 8))
-        //     {
-        //         $_SESSION['invalid'][$key] = 'minimal mengandung 8 karakter!';
-        //     }
-        // }
-
-        // if (isset($_SESSION['invalid']))
-        // {
-        //     header('location: ' . BASE_URL . '/pengaduan');
-        //     exit;
-        // }
-
         if ($this->model('aduan_model')->addAduan($data) > 0)
         {
             $_SESSION['success']['msg'] = 'laporan berhasil terkirim!';
-            header('location: ' . BASE_URL);
+            $this->directTo();
         }
         else 
         {
             $_SESSION['error']['msg'] = 'terjadi kesalahan!';
-            header('location: ' . BASE_URL . '/pengaduan');
+            $this->directTo('/pengaduan');
         }
     }
 

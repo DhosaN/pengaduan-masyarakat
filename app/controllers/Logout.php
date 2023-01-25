@@ -1,13 +1,10 @@
 <?php
 
-class Logout {
+class Logout extends Controller {
     public function index()
     {
         Middleware::onlyLoggedIn();
 
-        unset($_SESSION['user']);
-
-        header('location: ' . BASE_URL);
-        exit;
+        $this->directTo();
     }
 }

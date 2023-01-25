@@ -38,11 +38,8 @@ class Login extends Controller {
                 'id_level' => $user['id_level'],
             ];
 
-            header('location: ' . BASE_URL);
-            exit;
+            $this->directTo('/login');
         }
-
-        header('location: ' . BASE_URL . '/login');
-        exit;
+        $this->directTo('/login');
     }
 }
