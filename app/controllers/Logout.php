@@ -5,6 +5,8 @@ class Logout extends Controller {
     {
         Middleware::onlyLoggedIn();
 
+        unset($_SESSION['user']);
+
         $this->directTo();
     }
 }
