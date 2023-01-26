@@ -31,11 +31,10 @@
                     <form action="<?= BASE_URL ?>/admin/storetanggapan/<?= $data['laporan']['id_aduan']?>" method="POST">
                         <div class="form-group">
                             <label for="tanggapanInput">Tanggapan</label>
-                            <textarea class="form-control" name="tanggapan" id="tanggapanInput" cols="30" rows="15" required>
+                            <textarea class="form-control" name="tanggapan" id="tanggapanInput" cols="30" rows="15" required disabled>
                                 <?=$data['tanggapan']['tanggapan']?>
                             </textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Tanggapi</button>
                     </form>
                 </div>
             </div>
