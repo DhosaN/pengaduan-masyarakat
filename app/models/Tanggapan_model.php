@@ -30,4 +30,13 @@ class Tanggapan_model {
 
         return $this->db->resultSet();
     }
+
+    public function getTanggapanByAduanId($id)
+    {
+        $query = 'SELECT * FROM ' . $this->table . ' WHERE id_aduan=:id';
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+
+        return $this->db->single();
+    }
 }

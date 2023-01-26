@@ -4,7 +4,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Laporan Masuk</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Laporan Ditanggapi</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -39,7 +39,7 @@
                                                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                                             aria-labelledby="dropdownMenuLink">
                                                             <div class="dropdown-header">Aksi</div>
-                                                            <a class="dropdown-item" href="<?= BASE_URL ?>/admin/detaillaporan/<?= $laporan['id_aduan'] ?>">Detail Laporan</a>
+                                                            <a class="dropdown-item" href="<?= BASE_URL ?>/admin/detaillaporanDitanggapi/<?= $laporan['id_aduan'] ?>">Detail Laporan</a>
                                                             <div class="dropdown-divider"></div>
                                                             <a class="dropdown-item" href="#">Something else here</a>
                                                         </div>

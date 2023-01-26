@@ -216,5 +216,24 @@ class Admin extends Controller {
         $this->view('admin/laporan_ditanggapi/index', $data);
         $this->view('templates/footer');
     }
+
+    public function detailLaporanDitanggapi($id)
+    {
+        Middleware::onlyAdmin();
+
+        $laporan = $this->model('aduan_model')->getAduanById($id);
+        $tanggapan = $this->model('tanggapan_model')->getTanggapanByAduanId($id);
+
+        $data = [
+            'title' => 'Detail Laporan Ditanggapi',
+            'controller' => 'adminPetugas',
+            'laporan' => $laporan,
+            'tanggapan' => $tanggapan,
+        ];
+
+        $this->view('templates/header', $data);
+        $this->view('admin/laporan_ditanggapi/detail', $data);
+        $this->view('templates/footer');
+    }
     // end of pengaduan section
 }
