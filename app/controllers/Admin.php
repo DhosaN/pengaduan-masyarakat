@@ -199,5 +199,22 @@ class Admin extends Controller {
         }
         $this->directTo('/admin/laporanmasuk');
     }
+
+    public function laporanDitanggapi()
+    {
+        Middleware::onlyAdmin();
+
+        $laporan = $this->model('aduan_model')->getAduanByStatus('ditanggapi', 'ASC');
+
+        $data = [
+            'title' => 'Laporan Ditanggapi',
+            'controller' => 'adminPetugas',
+            'laporan' => $laporan,
+        ];
+
+        $this->view('templates/header', $data);
+        $this->view('admin/laporan_ditanggapi/index', $data);
+        $this->view('templates/footer');
+    }
     // end of pengaduan section
 }
